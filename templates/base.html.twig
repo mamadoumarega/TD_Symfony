@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Voyages{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <script src="{{ asset('js/bootstrap.bundle.min.js') }}" defer></script>
+        {% block javascripts %}{% endblock %}
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% include '_inc/nav.html.twig' %}
+
+        <idv class="container">
+            {% block body %}
+            {% endblock %}
+        </idv>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="row">
+        <div class="col">
+            {% for region in regions %}
+                <p>
+                    <a href="{{ url('region.index', {'slug': region.slug}) }}">
+                        {{ region.name | capitalize}}
+                    </a>
+                    {#{{ dump(region) }}#}
+
+                    <ul>
+                        {% for country in region.countries %}
+                            <a href="{{ url('country.getCountry', {slug: country.slug}) }}">
+                                <li>{{ country.name | capitalize }}</li>
+                            </a>
+                        {% endfor %}
+                    </ul>
+                </p>
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock %}
+
+

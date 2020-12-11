@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Administration des voyages</h2>
+                {% for item in app.flashes('notice') %}
+                    <p class="alert alert-success">{{ item }}</p>
+                {% endfor %}
+
+                <p class="text-right">
+                    <a href="{{ url('admin.travel.form.add') }}" class="btn btn-primary">Ajouter</a>
+                </p>
+
+                <table class="table table-striped">
+                    <tr>
+                        <th>Affiche</th>
+                        <th>Nom</th>
+                        <th>Description</th>
+                        <th>Prix</th>
+                        <th>Durée</th>
+                    </tr>
+                    {% for travel in travels %}
+                        <tr>
+                            <td class="w-25">
+                                <img src="{{ asset("img/" ~ travel.poster) }}" alt="{{ travel.poster }}" class="img-fluid">
+                            </td>
+                            <td>
+                                {{ travel.name }}
+                            </td>
+                            <td>
+                                {{ travel.description }}
+                            </td>
+                            <td>
+                                {{ travel.price }} €
+                            </td>
+                            <td>
+                                {{ travel.days }} jours
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

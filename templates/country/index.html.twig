@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="row container">
+        <div class="col">
+            {% for country in countries %}
+                <div class="col-3">
+                    <a href="{{ url("country.getCountry", {"slug": country.slug}) }}">
+                        {{ country.name | capitalize}}
+                    </a>
+                </div>
+
+                <div class="col-3">
+                    <p>
+                       Description: {{ country.description }}
+                    </p>
+                </div>
+
+                <div class="col-3">
+                    <p>
+                      Poster:  {{ country.poster }}
+                    </p>
+                </div>
+                <div class="col-3">
+                    <p>
+                        Slug: {{ country.slug }}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Formulaire des voyages</h2>
+                {{ form_start(form, { attr: { novalidate: '' } }) }}
+                <p>
+                    {{ form_label(form.name, 'Nom :') }}
+                    {{ form_widget(form.name, { attr: { placeholder: 'Nom du voyage'}} ) }}
+                </p>
+                <p>
+                    {{ form_label(form.description, 'Description :') }}
+                    {{ form_widget(form.description, { attr: { placeholder: 'Description'}}) }}
+                </p>
+                <p>
+                    {{ form_label(form.price, 'Prix :') }}
+                    {{ form_widget(form.price, { attr: { placeholder: 'Prix du voyage'}}) }}
+                </p>
+                <p>
+                    {{ form_label(form.days, 'Jours :') }}
+                    {{ form_widget(form.days, { attr: { placeholder: 'Nombre de jours'}}) }}
+                </p>
+                <p>
+                    {{ form_label(form.poster, 'Image :') }}
+                    {{ form_widget(form.poster, { attr: { placeholder: 'Image'}}) }}
+                </p>
+                <p>
+                    {{ form_label(form.country, 'Pays :') }}
+                    {{ form_widget(form.country, { attr: { placeholder: 'Choix du pays'}}) }}
+                </p>
+                <p>
+                    {{ form_label(form.theme, 'Thème :') }}
+                    {{ form_widget(form.theme, { attr: { placeholder: 'Choix du thème'}}) }}
+                </p>
+                <p>
+                    <input type="submit" value="Valider" class="btn btn-info text-light">
+                </p>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
